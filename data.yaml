@@ -45,4 +45,3 @@ connections:
     from_port: eth2
     to_device: 'Switch 1'
     to_port: eth3
-
