@@ -1,0 +1,48 @@
+devices:
+  - name: 'Router'
+    color: [135, 206, 250, 1.0]
+    ip: 0.0.0.0
+
+  - name: 'Switch 1'
+    color: [144, 238, 144, 1.0]
+    ip: 192.168.10.60
+
+  - name: 'Firewall 1'
+    color: [240, 128, 128, 1.0]
+    ip: 192.168.10.4
+
+  - name: 'Cisco SW-NW-01'
+    color: [240, 158, 128, 1.0]
+    ip: 192.168.10.6
+
+connections:
+  - from_device: 'Router'
+    from_port: eth0
+    to_device: 'Firewall 1'
+    to_port: eth0
+
+  - from_device: 'Firewall 1'
+    from_port: eth1
+    to_device: 'Switch 1'
+    to_port: eth0
+
+  - from_device: 'Firewall 1'
+    from_port: eth2
+    to_device: 'Cisco SW-NW-01'
+    to_port: eth0
+
+  - from_device: 'Switch 1'
+    from_port: eth1
+    to_device: 'Cisco SW-NW-01'
+    to_port: eth1
+
+  - from_device: 'Switch 1'
+    from_port: eth2
+    to_device: 'Firewall 1'
+    to_port: eth3
+
+  - from_device: 'Cisco SW-NW-01'
+    from_port: eth2
+    to_device: 'Switch 1'
+    to_port: eth3
+
